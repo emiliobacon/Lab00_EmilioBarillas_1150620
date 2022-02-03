@@ -113,3 +113,4 @@ C:\Users\emili\source\repos\2022\Lab00_EmilioBarillas_1150620\Lab00\Lab00\obj\De
 C:\Users\emili\source\repos\2022\Lab00_EmilioBarillas_1150620\Lab00\Lab00\obj\Debug\netcoreapp3.1\Razor\Views\Client\Details.cshtml.g.cs
 C:\Users\emili\source\repos\2022\Lab00_EmilioBarillas_1150620\Lab00\Lab00\obj\Debug\netcoreapp3.1\Razor\Views\Client\Create.cshtml.g.cs
 C:\Users\emili\source\repos\2022\Lab00_EmilioBarillas_1150620\Lab00\Lab00\obj\Debug\netcoreapp3.1\Razor\Views\Client\Edit.cshtml.g.cs
+C:\Users\emili\source\repos\2022\Lab00_EmilioBarillas_1150620\Lab00\Lab00\obj\Debug\netcoreapp3.1\Razor\Views\Client\Delete.cshtml.g.cs
