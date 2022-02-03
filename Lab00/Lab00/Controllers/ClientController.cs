@@ -36,7 +36,8 @@ namespace Lab00.Controllers
         {
             try
             {
-                ClientModels.Save(new ClientModels
+
+                var response = ClientModels.Save(new ClientModels
                 {
                     Id = int.Parse(collection["Id"]),
                     FirstName = collection["FirstName"],
@@ -45,7 +46,14 @@ namespace Lab00.Controllers
                     PhoneNumber = int.Parse(collection["PhoneNumber"])
                 });
 
-                return RedirectToAction(nameof(Index));
+
+                if (response)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+
+                return View();
+
             }
             catch
             {
@@ -78,6 +86,7 @@ namespace Lab00.Controllers
         // GET: ClientController1/Delete/5
         public ActionResult Delete(int id)
         {
+            var model = Data.Instance.clientlist.Find(client => client.Id == id);
             return View();
         }
 
