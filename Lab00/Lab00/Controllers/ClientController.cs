@@ -1,46 +1,32 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Lab00.Helpers;
 using Lab00.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Lab00.Controllers
 {
     public class ClientController : Controller
     {
+
+
         // GET: ClientController1
         public ActionResult Index()
         {
-            var list = new List<ClientModels>();
-            {
-                list.Add(new ClientModels
-                {
+            return View(Data.Instance.clientlist);
 
-                    FirstName = "Emilio",
-                    LastName = "Barilas",
-                    Description = "Cliente",
-                    Id = 001,
-                    PhoneNumber = 32084649,
-                });
-
-
-
-                return View(list);
-            }
         }
 
         // GET: ClientController1/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = Data.Instance.clientlist.Find(client => client.Id == id);
+            return View(model);
         }
 
         // GET: ClientController1/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new ClientModels());
         }
 
         // POST: ClientController1/Create
@@ -50,6 +36,15 @@ namespace Lab00.Controllers
         {
             try
             {
+                ClientModels.Save(new ClientModels
+                {
+                    Id = int.Parse(collection["Id"]),
+                    FirstName = collection["FirstName"],
+                    LastName = collection["LastName"],
+                    Description = collection["Description"],
+                    PhoneNumber = int.Parse(collection["PhoneNumber"])
+                });
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -61,7 +56,8 @@ namespace Lab00.Controllers
         // GET: ClientController1/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = Data.Instance.clientlist.Find(client => client.Id == id);
+            return View(model);
         }
 
         // POST: ClientController1/Edit/5
