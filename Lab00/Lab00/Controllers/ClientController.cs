@@ -2,6 +2,7 @@
 using Lab00.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Lab00.Controllers
 {
@@ -12,9 +13,13 @@ namespace Lab00.Controllers
         // GET: ClientController1
         public ActionResult Index()
         {
+
             return View(Data.Instance.clientlist);
 
         }
+
+       
+
 
         // GET: ClientController1/Details/5
         public ActionResult Details(int id)
